@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# 拉取 ovaltine 固件分区镜像（radio/），因为 modem.img 270.8 MiB 超过 GitHub 100 MiB 硬限，
-# 这 24 个镜像放在 Release 附件里，不进 git 历史。
+# Fetches ovaltine firmware partition images (radio/), because modem.img at 270.8 MiB is over GitHub's 100 MiB hard limit,
+# so these 24 images are kept in a Release asset, not in git history.
 set -euo pipefail
 
 ORG="MagicNeko-ROM"
@@ -15,16 +15,16 @@ URL="https://github.com/${ORG}/${REPO}/releases/download/${TAG}/${ASSET}"
 cd "$REPO_ROOT"
 mkdir -p "$DEST"
 
-echo "==> 下载 $ASSET (${TAG})"
+echo "==> Downloading $ASSET (${TAG})"
 curl -L --fail --retry 3 -o "$ASSET" "$URL"
 
-echo "==> 解压到 radio/"
+echo "==> Extracting to radio/"
 tar --zstd -xf "$ASSET" -C "$DEST"
 
-echo "==> 校验 sha256"
+echo "==> Verifying sha256"
 ( cd "$DEST" && sha256sum -c SHA256SUMS )
 
 n=$(find "$DEST" -maxdepth 1 -type f -name '*.img' | wc -l)
-echo "==> 完成：radio/ 下 $n 个 .img（应为 24）"
-[ "$n" -eq 24 ] || { echo "警告：数量不是 24，检查附件是否完整" >&2; exit 1; }
-echo "==> 可以删掉本地压缩包：rm -f $ASSET"
+echo "==> Done: $n .img files in radio/ (should be 24)"
+[ "$n" -eq 24 ] || { echo "Warning: count isn't 24, check that the asset is complete" >&2; exit 1; }
+echo "==> You can delete the local archive: rm -f $ASSET"
