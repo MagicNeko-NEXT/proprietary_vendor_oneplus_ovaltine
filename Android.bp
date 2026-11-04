@@ -1286,6 +1286,7 @@ cc_prebuilt_library_shared {
                 "libchilog",
                 "libc++",
                 "libcom.qti.chinodeutils",
+                "libhwconfigurationutil",
                 "liblog",
                 "libc",
                 "libm",
