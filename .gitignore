@@ -1,7 +1,0 @@
-# Firmware partition images aren't shipped with the repo: modem.img alone is 270.8 MiB, over GitHub's 100 MiB hard limit.
-# See radio/README.md to get them, or just run tools/fetch-firmware.sh
-radio/*
-!radio/README.md
-
-# Firmware archive downloaded by tools/fetch-firmware.sh
-/ovaltine-radio-*.tar.zst
