@@ -6142,7 +6142,7 @@ cc_prebuilt_library_shared {
                 "vendor.oplus.hardware.commondcs-V1-ndk",
                 "vendor.oplus.hardware.cammidasservice-V1-ndk_platform",
                 "libmidasserviceintf_aidl",
-                "libdisplayconfig.qti",
+                "libdisplayconfig.stock",
                 "vendor.qti.hardware.display.config-V2-ndk",
                 "libz",
                 "libc",
