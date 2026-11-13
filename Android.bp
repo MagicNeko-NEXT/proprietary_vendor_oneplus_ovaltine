@@ -6120,6 +6120,7 @@ cc_prebuilt_library_shared {
                 "libhidltransport",
                 "libcamera_metadata",
                 "libcamxcommonutils",
+                "libcamxexternalformatutils",
                 "libcamxsettingsmanager",
                 "libqti_vndfwk_detect",
                 "libutils",
